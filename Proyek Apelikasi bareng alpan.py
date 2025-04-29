@@ -132,6 +132,7 @@ def info_nim(nim):
                     '03': 'Informatika',
                     '04': 'PJJ Informatika',
                     '05': 'Sains Data',
+                }
             },
             '04': {
                 'nama': 'Fakultas Ekonomi Dan Bisnis',
@@ -147,8 +148,7 @@ def info_nim(nim):
                 'nama': 'Fakultas Komunikasi Ilmu Sosial',
                 'prodi': {
                     '01': 'Ilmu Komunikasi',
-                    '02': 'Hubungan Masyarakat',
-                    
+                    '02': 'Hubungan Masyarakat'
                 }
             },
             '06': {
