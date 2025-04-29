@@ -84,25 +84,34 @@ def hapus_data():
 
 def info_nim(nim):
     try:
-        tahun = '20' + nim[6:8]  # Ambil tahun dari posisi ke-7 dan 8 (misal '24' -> 2024)
-        fakultas_kode = nim[3:5]  # Ambil fakultas dari posisi ke-4 dan 5 (misal '08')
-        prodi_kode = nim[5:7]     # Ambil prodi dari posisi ke-6 dan 7 (misal '24')
+        if len(nim) < 12:
+            raise ValueError("Panjang NIM tidak valid")
 
-        fakultas = {
-            '08': 'Fakultas Ilmu Terapan',
-            '02': 'Fakultas Industri Kreatif',
-            '01': 'Fakultas Informatika',
-            # Tambah lainnya kalau ada
-        }.get(fakultas_kode, 'Fakultas Tidak Diketahui')
+        fakultas_kode = nim[0:3]
+        prodi_kode = nim[3:5]
+        angkatan_kode = nim[5:7]
+        nomor_urut = nim[7:]
 
-        prodi = {
-            '24': 'Teknologi Rekayasa Multimedia',
+        tahun = '20' + angkatan_kode
+
+        fakultas_dict = {
+            '707': 'Fakultas Ilmu Terapan',
+            '708': 'Fakultas Teknik Elektro',
+            '709': 'Fakultas Industri Kreatif',
+            # Tambahkan lainnya jika perlu
+        }
+
+        prodi_dict = {
+            '08': 'Teknologi Rekayasa Multimedia',
             '11': 'Teknik Informatika',
             '12': 'Sistem Informasi',
-            # Tambah lainnya kalau ada
-        }.get(prodi_kode, 'Prodi Tidak Diketahui')
+            # Tambahkan lainnya jika perlu
+        }
 
-        print(f"   -> Angkatan: {tahun}, Prodi: {prodi}, Fakultas: {fakultas}")
+        fakultas = fakultas_dict.get(fakultas_kode, 'Fakultas Tidak Diketahui')
+        prodi = prodi_dict.get(prodi_kode, 'Prodi Tidak Diketahui')
+
+        print(f"   -> Angkatan: {tahun}, Prodi: {prodi}, Fakultas: {fakultas}, No. Urut: {nomor_urut}")
     except Exception as e:
         print(f"   -> Informasi NIM tidak valid: {e}")
 
