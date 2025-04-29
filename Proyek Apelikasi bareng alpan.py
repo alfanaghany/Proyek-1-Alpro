@@ -82,7 +82,7 @@ def hapus_data():
     else:
         print("Nomor data tidak valid.\n")
 
-def info_nim(nim):
+def info_nim(nim): 
     try:
         if len(nim) < 12:
             raise ValueError("Panjang NIM tidak valid")
@@ -96,31 +96,92 @@ def info_nim(nim):
         tahun = '20' + angkatan_kode
 
         gelar_dict = {
-            '7': 'Sarjana Terapan (D4)',
-            '6': 'Diploma 3 (D3)',
-            '8': 'Magister Terapan',
+            '7': 'D4',
+            '6': 'D3',
+            '1': 'S1',
+            '2': 'S2',
+            '3': 'S3',
         }
 
         fakultas_dict = {
-            '07': 'Fakultas Ilmu Terapan',
-            '01': 'Fakultas Teknik Elektro',
-            '02': 'Fakultas Industri Kreatif',
-        }
-
-        prodi_dict = {
-            '08': 'Teknologi Rekayasa Multimedia',
-            '11': 'Teknik Informatika',
-            '12': 'Sistem Informasi',
+            '01': {
+                'nama': 'Fakultas Teknik Elektro',
+                'prodi': {
+                    '01': 'Teknik Fisika',
+                    '02': 'Teknik Telekomunikasi',
+                    '03': 'Teknik Biomedis',
+                    '04': 'Teknik Sistem Energi',
+                    '05': 'Teknik Elektro',
+                    '06': 'Teknik Komputer',
+                }
+            },
+            '02': {
+                'nama': 'Fakultas Rekayasa Industri',
+                'prodi': {
+                    '01': 'Sistem Informasi',
+                    '02': 'Teknik Industri',
+                    '03': 'Teknik Logistik',
+                    '04': 'Manajemen Rekayasa',
+                }
+            },
+            '03': {
+                'nama': 'Fakultas Informatika',
+                'prodi': {
+                    '01': 'Teknologi Informasi',
+                    '02': 'Rekayasa Perangkat Lunak',
+                    '03': 'Informatika',
+                    '04': 'PJJ Informatika',
+                    '05': 'Sains Data',
+            },
+            '04': {
+                'nama': 'Fakultas Ekonomi Dan Bisnis',
+                'prodi': {
+                    '01': 'Manajemen',
+                    '02': 'Akuntansi',
+                    '03': 'Manajemen Bisnis Rekreasi',
+                    '04': 'Administrasi Bisnis',
+                    '05': 'Bisnis Digital',
+                }
+            },
+            '05': {
+                'nama': 'Fakultas Komunikasi Ilmu Sosial',
+                'prodi': {
+                    '01': 'Ilmu Komunikasi',
+                    '02': 'Hubungan Masyarakat',
+                    
+                }
+            },
+            '06': {
+                'nama': 'Fakultas Industri Kreatif',
+                'prodi': {
+                    '11': 'Desain Komunikasi Visual',
+                    '12': 'Desain Interior',
+                }
+            },
+            '07': {
+                'nama': 'Fakultas Ilmu Terapan',
+                'prodi': {
+                    '08': 'Teknologi Rekayasa Multimedia',
+                    '09': 'TR Perangkat Lunak',
+                    '10': 'TR Jaringan Telekomunikasi Digital',
+                }
+            }
         }
 
         gelar = gelar_dict.get(gelar_kode, 'Gelar Tidak Diketahui')
-        fakultas = fakultas_dict.get(fakultas_kode, 'Fakultas Tidak Diketahui')
-        prodi = prodi_dict.get(prodi_kode, 'Prodi Tidak Diketahui')
+        fakultas_data = fakultas_dict.get(fakultas_kode)
+
+        if fakultas_data:
+            nama_fakultas = fakultas_data['nama']
+            nama_prodi = fakultas_data['prodi'].get(prodi_kode, 'Prodi Tidak Diketahui')
+        else:
+            nama_fakultas = 'Fakultas Tidak Diketahui'
+            nama_prodi = 'Prodi Tidak Diketahui'
 
         print(f"   -> Angkatan: {tahun}")
         print(f"   -> Gelar   : {gelar}")
-        print(f"   -> Prodi   : {prodi}")
-        print(f"   -> Fakultas: {fakultas}")
+        print(f"   -> Prodi   : {nama_prodi}")
+        print(f"   -> Fakultas: {nama_fakultas}")
         print(f"   -> No. Urut: {nomor_urut}")
     except Exception as e:
         print(f"   -> Informasi NIM tidak valid: {e}")
