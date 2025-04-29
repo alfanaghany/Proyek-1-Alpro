@@ -87,33 +87,44 @@ def info_nim(nim):
         if len(nim) < 12:
             raise ValueError("Panjang NIM tidak valid")
 
-        fakultas_kode = nim[0:3]
+        gelar_kode = nim[0]
+        fakultas_kode = nim[1:3]
         prodi_kode = nim[3:5]
         angkatan_kode = nim[5:7]
         nomor_urut = nim[7:]
 
         tahun = '20' + angkatan_kode
 
+        gelar_dict = {
+            '7': 'Sarjana Terapan (D4)',
+            '6': 'Diploma 3 (D3)',
+            '8': 'Magister Terapan',
+        }
+
         fakultas_dict = {
-            '707': 'Fakultas Ilmu Terapan',
-            '708': 'Fakultas Teknik Elektro',
-            '709': 'Fakultas Industri Kreatif',
-            # Tambahkan lainnya jika perlu
+            '07': 'Fakultas Ilmu Terapan',
+            '01': 'Fakultas Teknik Elektro',
+            '02': 'Fakultas Industri Kreatif',
         }
 
         prodi_dict = {
             '08': 'Teknologi Rekayasa Multimedia',
             '11': 'Teknik Informatika',
             '12': 'Sistem Informasi',
-            # Tambahkan lainnya jika perlu
         }
 
+        gelar = gelar_dict.get(gelar_kode, 'Gelar Tidak Diketahui')
         fakultas = fakultas_dict.get(fakultas_kode, 'Fakultas Tidak Diketahui')
         prodi = prodi_dict.get(prodi_kode, 'Prodi Tidak Diketahui')
 
-        print(f"   -> Angkatan: {tahun}, Prodi: {prodi}, Fakultas: {fakultas}, No. Urut: {nomor_urut}")
+        print(f"   -> Angkatan: {tahun}")
+        print(f"   -> Gelar   : {gelar}")
+        print(f"   -> Prodi   : {prodi}")
+        print(f"   -> Fakultas: {fakultas}")
+        print(f"   -> No. Urut: {nomor_urut}")
     except Exception as e:
         print(f"   -> Informasi NIM tidak valid: {e}")
+
 
 
 def menu():
