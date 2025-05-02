@@ -148,22 +148,33 @@ def info_nim(nim):
                 'nama': 'Fakultas Komunikasi Ilmu Sosial',
                 'prodi': {
                     '01': 'Ilmu Komunikasi',
-                    '02': 'Hubungan Masyarakat'
+                    '02': 'Hubungan Masyarakat',
+                    '03': 'Penyiaran Konten Digital',
+                    '04': 'Psikologi',
                 }
             },
             '06': {
                 'nama': 'Fakultas Industri Kreatif',
                 'prodi': {
-                    '11': 'Desain Komunikasi Visual',
-                    '12': 'Desain Interior',
+                    '01': 'Desain Komunikasi Visual',
+                    '02': 'Desain Produk',
+                    '03': 'Desain Interior',
+                    '05': 'Kriya',
+                    '06': 'Seni Rupa',
+                    '07': 'Film',
                 }
             },
             '07': {
                 'nama': 'Fakultas Ilmu Terapan',
                 'prodi': {
+                    '01': 'Teknologi Telekomunikasi',
+                    '02': 'Rekayasa Perangkat Lunak Aplikasi',
+                    '03': 'Sisterm Informasi',
+                    '04': 'Teknologi Komputer',
+                    '05': 'Manajemen Pemasaran',
+                    '07': 'Perhotelan',
                     '08': 'Teknologi Rekayasa Multimedia',
-                    '09': 'TR Perangkat Lunak',
-                    '10': 'TR Jaringan Telekomunikasi Digital',
+                    '09': 'Sistem Informasi kota Cerdas',
                 }
             }
         }
