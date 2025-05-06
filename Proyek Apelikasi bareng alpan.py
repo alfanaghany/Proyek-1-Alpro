@@ -201,7 +201,7 @@ def info_nim(nim):
 
 def menu():
     while True:
-        print("=== Aplikasi Data Mahasiswa TELU ===")
+        print("=== Aplikasi Data Mahasiswa TEL-U ===")
         print("1. Lihat Data Mahasiswa")
         print("2. Tambah Data Mahasiswa")
         print("3. Edit Data Mahasiswa")
